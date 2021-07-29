@@ -19,7 +19,7 @@ app.use(bp.json());
 
 app.get('/', (req, res) => {
     res.send("<h1>Bem vindo a página inicial do Servidor - API!</h1> \n" + 
-    "\n <h3>Nada de importante acontece aqui.</h3>"
+    "\n <h3>Nada de importante acontece aqui.</h3> \n"
     )
 });
 
