@@ -1,6 +1,8 @@
 const collabUser = require('./../../models/collaborators/collabUser');
 const collabData = require('./../../models/collaborators/collabData');
 const collabFile = require('./../../models/collaborators/collabFiles');
+const departament = require('./../../models/departaments');
+const groups = require('./../../models/groups');
 
 collabData.belongsTo(collabUser, {
     allowNull: false
@@ -24,6 +26,14 @@ module.exports = {
                         'age',
                         'description',
                         'status'
+                    ],
+                    include: [
+                        {
+                            model: departament, attributes: ['name']
+                        },
+                        {
+                            model: groups, attributes: ['name']
+                        }
                     ]
                 }
             ],
