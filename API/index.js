@@ -10,6 +10,7 @@ const config = require('./configs/configs');
 const conn = require('./utils/DBConnection');
 
 const authRoute = require('./routes/AuthRoute');
+const listRoute = require('./routes/ListsRoute');
 
 app.use(cors());
 app.use(helmet());
@@ -24,6 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authRoute);
+app.use('/list', listRoute);
 
 http.listen(config.PORT, () => {
     console.log(co.blue(`\n\n API rodando no endereço: ` + co.bold(`http://localhost:${config.PORT}`)
