@@ -3,11 +3,13 @@ const bp        = require('body-parser');
 const co        = require('colors');
 const cors      = require('cors');
 const helmet    = require('helmet');
-const app = express();
+const app       = express();
 const http      = require('http').Server(app);
 
 const config = require('./configs/configs');
 const conn = require('./utils/DBConnection');
+
+const authRoute = require('./routes/AuthRoute');
 
 app.use(cors());
 app.use(helmet());
@@ -20,6 +22,8 @@ app.get('/', (req, res) => {
     "\n <h3>Nada de importante acontece aqui.</h3>"
     )
 });
+
+app.use('/auth', authRoute);
 
 http.listen(config.PORT, () => {
     console.log(co.blue(`\n\n API rodando no endereço: ` + co.bold(`http://localhost:${config.PORT}`)
