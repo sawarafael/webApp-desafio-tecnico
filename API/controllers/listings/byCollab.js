@@ -37,7 +37,7 @@ module.exports = {
             attributes: ['id', 'username', 'email']
         }).then(collab => {
             if(!collab) {
-                res.status(404).json({ err: "Colaborador não existe!" })
+                res.status(404).json({ err: "Colaboradores não existem!" })
             } else {
                 const collabData = collab.map(dataTD => {
                    const data = {

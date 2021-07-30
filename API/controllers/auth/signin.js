@@ -21,7 +21,7 @@ module.exports = {
             }
 
             if(req.body.password === collab.password) {
-                res.status(200).json({ sucess: 'Sucesso!', booleanPass: 1 })
+                res.status(200).json({ sucess: 'Sucesso!', collabId: collab.id })
             } else {
                 res.status(404).json({ err: "Senha Inválida." })
             }

@@ -15,8 +15,11 @@ API destinada para uso do aplicativo *Perfil de Colaboradores WebApp*, este Read
 Crie um Banco de Dados com o nome de *"collabsDB"* e em seguida vá até o arquivo ***"utils/DBConnection.js"*** e altere os seguintes campos:
 
 DB_NAME : *collabsDB*
+
 DB_USER : ***Nome do Usuário MySQL proveniente***
+
 DB_PASS : ***Senha do Usuário MySQL proveniente***
+
 DB_HOST : ***localhost***
 
 Salve este arquivo e em seguida vá até ao outro arquivo com o nome de ***"./index.js"*** e retire esta parte do código da parte comentada:
@@ -37,4 +40,17 @@ npm install
 node index
 ~~~
 
+As tabelas do Banco de Dados *collabsDB* serão automáticamente criadas e prontas para o trabalho, no entanto, encerre a execução e volte ao arquivo *./index.js* e comente a parte do código acima (ou remova-o).
 
+Feito isto, você pode manter a API executando em escuta de desenvolvimento com o comando:
+~~~bash
+nodemon index
+~~~
+
+### 2º - Funcionalidade das Rotas
+
+|   	|   	|   	|   	|   	|
+|--:	|--:	|--:	|--:	|---	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
