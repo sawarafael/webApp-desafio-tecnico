@@ -15,8 +15,11 @@ API destinada para uso do aplicativo *Perfil de Colaboradores WebApp*, este Read
 Crie um Banco de Dados com o nome de *"collabsDB"* e em seguida vá até o arquivo ***"utils/DBConnection.js"*** e altere os seguintes campos:
 
 DB_NAME : *collabsDB*
+
 DB_USER : ***Nome do Usuário MySQL proveniente***
+
 DB_PASS : ***Senha do Usuário MySQL proveniente***
+
 DB_HOST : ***localhost***
 
 Salve este arquivo e em seguida vá até ao outro arquivo com o nome de ***"./index.js"*** e retire esta parte do código da parte comentada:
@@ -31,13 +34,13 @@ conn
     })
 ~~~
 
-Após isto, instale as dependêncas da API e execute-o com os seguintes comandos, respectivamente:
+Após isto, instale as dependêncas da API e logo em seguida execute o programa para que as tabelas do Banco de Dados sejam criadas automáticamente, com os seguintes comandos, respectivamente:
 ~~~bash
 npm install
 node index
 ~~~
 
-As tabelas do Banco de Dados *collabsDB* serão automáticamente criadas e prontas para o trabalho, no entanto, encerre a execução e volte ao arquivo *./index.js* e comente a parte do código acima (ou remova-o).
+Encerre a execução e volte ao arquivo *./index.js* e comente a parte do código acima (ou remova-o).
 
 Feito isto, você pode manter a API executando em escuta de desenvolvimento com o comando:
 ~~~bash
@@ -61,9 +64,11 @@ nodemon index
 
 ### 3º - Versionamento e Correções
 **1.0.0v**
+
 (x.y.z) →  **X** = Concatenação / **Y**= Adição / **Z** = Correção
 
 ___________________________________________________
 **Nenhuma Feature registrada por enquanto...**
+
 ___________________________________________________
 **Caso ocorra algum erro durante a execução da API, reportar em "Issues" deste repositório!**
