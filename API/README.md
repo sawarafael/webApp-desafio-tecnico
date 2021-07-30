@@ -14,6 +14,7 @@ API destinada para uso do aplicativo *Perfil de Colaboradores WebApp*, este Read
 
 Crie um Banco de Dados com o nome de *"collabsDB"* e em seguida vá até o arquivo ***"utils/DBConnection.js"*** e altere os seguintes campos:
 
+
 DB_NAME : *collabsDB*
 
 DB_USER : ***Nome do Usuário MySQL proveniente***
@@ -21,6 +22,7 @@ DB_USER : ***Nome do Usuário MySQL proveniente***
 DB_PASS : ***Senha do Usuário MySQL proveniente***
 
 DB_HOST : ***localhost***
+
 
 Salve este arquivo e em seguida vá até ao outro arquivo com o nome de ***"./index.js"*** e retire esta parte do código da parte comentada:
 
@@ -49,8 +51,10 @@ nodemon index
 
 ### 2º - Funcionalidade das Rotas
 
-|   	|   	|   	|   	|   	|
-|--:	|--:	|--:	|--:	|---	|
-|   	|   	|   	|   	|   	|
+|   Nome	|   Funcionalidade	|   Rotas	|   Entrada	|  Saída 	| Erros Esperados  |
+|:--:	|:--:	|  :-:	|:-:	|:--:	|:--:   |
+|   Registro de Colaboradores	|   Registra novos Colaboradores.	|   /auth/signup	|   ***body.username*** ± ***body.email*** ± ***body.password*** ± ***body.photo*** ± ***body.age*** ± ***body.description*** ± ***body.status*** ± ***body.departamentId*** ± ***body.groupId*** 	|   Status 200  ***"Colaborador cadastrado."***	|   Status 409 ***"Falha em cadastrar o Colaborador"*** ± Status 404 ***"Colaborador não existe."*** |
+|   Autenticação de Colaboradores	|   Realiza o Login do Colaborador.	|   /auth/signin	|   ***req.body.username***  ***body.password***	|   Status 200 ***"Sucesso!"*** / ID do Colaborador Autenticado'*'	|  Status 404 ***"Colaborador não existe!"*** ± Status 404 ***"Senha Inválida"*** ± Status 400 ***"Colaborador não encontrado"*** |
+|   Listagem de Colaboradores	|   Lista todos os Colaboradores registrados, podendo filtrar por Departamento, Grupo, Nome e Email.'**' 	|   /list/by-collab	|   ***body.departamentFilter*** ***body.groupFilter*** ***body.nameFilter*** ***body.emailFilter***	|   Status 200 / Listagem Filtrada de Colaboradores	|  Status 404 ***"Não existem Colaboradores"***  ± Status 400 ***"Colaboradores não encontrados"***
 |   	|   	|   	|   	|   	|
 |   	|   	|   	|   	|   	|

@@ -37,7 +37,7 @@ module.exports = {
             attributes: ['id', 'username', 'email']
         }).then(collab => {
             if(!collab) {
-                res.status(404).json({ err: "Colaboradores não existem!" })
+                res.status(404).json({ err: "Não existem Colaboradores!" })
             } else {
                 const collabData = collab.map(dataTD => {
                    const data = {
@@ -72,8 +72,7 @@ module.exports = {
                 res.status(200).json({ collabFilter })
             }
         }).catch(err => {
-            res.status(400).json({ err: "Colaborador não encontrado." })
-            console.log(err)
+            res.status(404).json({ err: "Colaboradores não encontrados." })
         })
     },
 
