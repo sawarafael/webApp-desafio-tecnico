@@ -60,8 +60,12 @@ module.exports = {
                         return filter.Departament === req.body.departamentFilter;
                     } else if (req.body.groupFilter) {
                         return filter.Group === req.body.groupFilter;
+                    } else if (req.body.nameFilter) {
+                        return filter.Username === req.body.nameFilter;
+                    } else if (req.body.emailFilter) {
+                        return filter.Email === req.body.filterEmail;
                     } else {
-                        return filter;
+                        return filter
                     }
                 })
 
