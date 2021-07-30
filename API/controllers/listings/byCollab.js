@@ -15,10 +15,7 @@ collabUser.hasOne(collabData, {
 
 module.exports = {
     showAllCollabs (req, res) {
-        collabUser.findAll({
-            where: {
-                id: req.query.id
-            },
+        collabUser.findAll({            
             include: [
                 {
                     model: collabData, attributes: [
@@ -42,9 +39,34 @@ module.exports = {
             if(!collab) {
                 res.status(404).json({ err: "Colaborador não existe!" })
             } else {
-                res.status(200).json({ collab })                
-            }
+                const collabData = collab.map(dataTD => {
+                   const data = {
+                       Id           : dataTD.id,
+                       Username     : dataTD.username,
+                       Email        : dataTD.email,
+                       Photo        : dataTD.collabDatum.photoImage,
+                       Age          : dataTD.collabDatum.age,
+                       Bio          : dataTD.collabDatum.description,
+                       Status       : dataTD.collabDatum.status,
+                       Departament  : dataTD.collabDatum.departament.name,
+                       Group        : dataTD.collabDatum.team.name                      
+                   }
+                    return data
+                })
 
+                const collabFilter = collabData.filter(filter => {
+                    
+                    if (req.body.departamentFilter) {
+                        return filter.Departament === req.body.departamentFilter;
+                    } else if (req.body.groupFilter) {
+                        return filter.Group === req.body.groupFilter;
+                    } else {
+                        return filter;
+                    }
+                })
+
+                res.json({ collabFilter })
+            }
         }).catch(err => {
             res.status(400).json({ err: "Colaborador não encontrado." })
             console.log(err)
