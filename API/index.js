@@ -11,6 +11,7 @@ const conn = require('./utils/DBConnection');
 
 const authRoute = require('./routes/AuthRoute');
 const listRoute = require('./routes/ListsRoute');
+const updtRoute = require('./routes/UpdtRoute');
 
 app.use(cors());
 app.use(helmet());
@@ -26,6 +27,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authRoute);
 app.use('/list', listRoute);
+app.use('/updt', updtRoute);
 
 http.listen(config.PORT, () => {
     console.log(co.blue(`\n\n API rodando no endereço: ` + co.bold(`http://localhost:${config.PORT}`)
@@ -41,8 +43,6 @@ conn
     }).catch((err) => {
         console.log(co.bgRed.white(`\nHOUVE UM ERRO COM A CONEXÃO COM O BANCO DE DADOS! \n`))
     })
-
-const a = require('./models/collaborators/collabData')
 
 /*
 *

@@ -69,7 +69,7 @@ module.exports = {
                     }
                 })
 
-                res.json({ collabFilter })
+                res.status(200).json({ collabFilter })
             }
         }).catch(err => {
             res.status(400).json({ err: "Colaborador não encontrado." })
