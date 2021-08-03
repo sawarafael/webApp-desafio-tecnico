@@ -23,6 +23,22 @@ label {
     letter-spacing: 0em;
 }
 
+.form-control {
+    display: block;    
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    -webkit-appearance: none;
+    color: #07065B;
+    border: 1px solid #6DBFCB;
+    background: #fff;
+    transition: border .3s ease;
+}
+
 .btn {
     background-color: #07065B;
     color: white;    
