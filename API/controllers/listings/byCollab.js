@@ -56,14 +56,14 @@ module.exports = {
 
                 const collabFilter = collabData.filter(filter => {
                     
-                    if (req.body.departamentFilter) {
-                        return filter.Departament === req.body.departamentFilter;
-                    } else if (req.body.groupFilter) {
-                        return filter.Group === req.body.groupFilter;
-                    } else if (req.body.nameFilter) {
-                        return filter.Username === req.body.nameFilter;
-                    } else if (req.body.emailFilter) {
-                        return filter.Email === req.body.filterEmail;
+                    if (req.query.departamentFilter) {
+                        return filter.Departament === req.query.departamentFilter;
+                    } else if (req.query.groupFilter) {
+                        return filter.Group === req.query.groupFilter;
+                    } else if (req.query.nameFilter) {
+                        return filter.Username === req.query.nameFilter;
+                    } else if (req.query.emailFilter) {
+                        return filter.Email === req.query.filterEmail;
                     } else {
                         return filter
                     }
@@ -72,7 +72,6 @@ module.exports = {
                 res.status(200).json({ collabFilter })
             }
         }).catch(err => {
-            console.log(err)
             res.status(404).json({ err: "Colaboradores não encontrados." })
         })
     },

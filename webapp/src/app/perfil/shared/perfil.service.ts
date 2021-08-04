@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
 import { Perfil } from './perfil';
@@ -19,6 +19,11 @@ export class PerfilService {
         delay(2000),
         tap(console.log)
       )
+  }
+
+  listByFilter() {
+    let headers = new HttpParams();
+    headers = headers.append('', '');
   }
 
 }
