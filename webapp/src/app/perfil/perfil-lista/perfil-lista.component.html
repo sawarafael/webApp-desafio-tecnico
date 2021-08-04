@@ -9,8 +9,12 @@
         <button type="button" class="btn btn-primary" [routerLink]="['/new']">
             Novo Colaborador
         </button>
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-secondary" (click)="onRefresh()">
             Atualizar
+        </button>
+        <input class="mx-1" type="text" style="width: 25rem" placeholder="Pesquise por Nome, Email, Departamento ou Grupo">
+        <button type="button" class="btn btn-secondary">
+            Pesquisar
         </button>
       </div>
     </div>
@@ -32,19 +36,19 @@
             </th>
           </tr>
         </thead>
-        <tbody *ngFor="let resultado of resultados">
-          <tr >
+        <tbody>
+          <tr *ngFor="let perfil of perfis">
             <td>
-                {{ resultado }}
+                {{ perfil.Id }}
             </td>
             <td>
-                {{ resultado[1] }}
+                {{ perfil.Username }}
             </td>
             <td>
-                departamento
+                {{ perfil.Departament }}
             </td>
             <td>
-                Grupo
+                {{ perfil.Group }}
             </td>
             <td>
               <span class="float-right">
@@ -59,20 +63,7 @@
             </td>
           </tr>
         </tbody>
-      </table>
-  
-      <ng-template #loading>
-        <span>Carregando Cursos...</span>
-      </ng-template>
-  
-      <!--ng-template #loadingError>
-        <div *ngIf="error$ | async; else loading" >
-          Erro ao carregar cursos. Tente novamente mais tarde.
-        </div>
-        <ng-template #loading>
-            <span>Carregando Cursos...</span>
-        </ng-template>
-      </ng-template -->
+      </table>  
     </div>
   </div>
   <!--
