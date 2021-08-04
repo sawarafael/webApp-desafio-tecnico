@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { empty } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { Perfil } from '../shared/perfil';
 import { PerfilService } from '../shared/perfil.service';
 
@@ -11,11 +9,10 @@ import { PerfilService } from '../shared/perfil.service';
 })
 export class PerfilListaComponent implements OnInit {
 
-  perfis: Perfil[]
+  perfis: Perfil[];
+  public queryField: string;
 
-  constructor(private PerfilService: PerfilService) {
-    this.perfis = []
-   }
+  constructor(private PerfilService: PerfilService) {  }
 
   ngOnInit(): void {
     this.onRefresh();
@@ -26,6 +23,10 @@ export class PerfilListaComponent implements OnInit {
           .subscribe(dados => { 
             this.perfis = dados.collabFilter; console.log(this.perfis)
           })       
+  }
+
+  onSearch() {
+    console.log(this.queryField)
   }
 
 

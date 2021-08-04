@@ -5,15 +5,18 @@
             Lista de Colaboradores
         </h4>
       </div>
-      <div class="float-right">
-        <button type="button" class="btn btn-primary" [routerLink]="['/new']">
+      <div class="float-right row">
+        <button type="button" class="col-auto mx-1 my-1 btn btn-primary" [routerLink]="['/new']">
             Novo Colaborador
         </button>
-        <button type="button" class="btn btn-secondary" (click)="onRefresh()">
+        <button type="button" class="col-auto mx-1 my-1 btn btn-secondary" (click)="onRefresh()">
             Atualizar
         </button>
-        <input class="mx-1" type="text" style="width: 25rem" placeholder="Pesquise por Nome, Email, Departamento ou Grupo">
-        <button type="button" class="btn btn-secondary">
+        <input type="text"
+         class="col-auto mx-1 my-1 form-control"
+         style="width: 23rem;"
+         placeholder="Pesquisar Nome, Email, Departamento ou Grupo">
+        <button type="button" class="col-auto mx-1 my-1 btn btn-secondary">
             Pesquisar
         </button>
       </div>
@@ -23,7 +26,7 @@
         <thead>
           <tr>
             <th>
-                #
+                ID
             </th>
             <th>
                 Nome
