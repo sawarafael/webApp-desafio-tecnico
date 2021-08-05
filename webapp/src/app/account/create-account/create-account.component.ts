@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from '../shared/account.service';
 
 @Component({
   selector: 'app-create-account',
@@ -8,19 +9,32 @@ import { Component, OnInit } from '@angular/core';
 export class CreateAccountComponent implements OnInit {
 
   account = {
-    name: '',
-    email: '',
-    password: ''
+    name      : '',
+    email     : '',
+    password  : '',
   };
+  
+  departaments: any = ['Financeiro', 'Administração',
+   'Direção', 'Operacional', 'Infraestrutura', 'Desenvolvimento'];
 
-  constructor() { }
+  groups: any = ['CLT', 'PJ', 'Freelancer', 'Parceiro']
+
+  constructor(private accountService:AccountService) { }
 
   ngOnInit(): void {
   }
 
   
-  onSubmit() {
+  async onSubmit() {
+    try {
+      console.log()
+      const result = await this.accountService.createAccount(this.account);
 
+      // exibir uma msg amigavel aqui
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
 }

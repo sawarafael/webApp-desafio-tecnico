@@ -5,14 +5,7 @@ module.exports = {
     signinCollab (req, res) {
         collabUser.findOne({
             where: {
-                [Op.or] : [
-                    {
-                        username: req.body.username
-                    },
-                    {
-                        email: req.body.email
-                    }
-                ]
+                email: req.body.email    
             },
             attributes: ['id', 'username', 'email', 'password']
         }).then(collab => {

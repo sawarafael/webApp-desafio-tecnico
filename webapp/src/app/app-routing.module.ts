@@ -39,7 +39,7 @@ const routes: Routes = [
         component: LoginComponent,
       },
       {
-        path: 'create-account',
+        path: 'signup',
         component: CreateAccountComponent
       }
     ]
