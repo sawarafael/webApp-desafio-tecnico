@@ -42,7 +42,27 @@ node index
 
 Encerre a execução e volte ao arquivo *./index.js* e comente a parte do código acima (ou remova-o).
 
-Feito isto, você pode manter a API executando em escuta de desenvolvimento com o comando:
+É importante você inserir dados nas tabelas-modelos: **teams** e **departaments**; com as seguintes querys, respectivamente:
+
+~~~bash
+insert into teams (id, name) values
+(1, "CLT"),
+ (2, "PJ"),
+  (3, "Freelancer"),
+   (4, "Parceiros");
+~~~
+
+~~~bash
+insert into departaments (id, name) values 
+(1, "Financeiro"),
+ (2, "Administração"),
+  (3, "Direção"),
+   (4, "Operacional"),
+    (5, "Infraestrutura"),
+     (6, "Desenvolvimento");
+~~~
+
+Feito tudo isto, você pode manter a API executando em escuta de desenvolvimento com o comando:
 ~~~bash
 nodemon index
 ~~~
