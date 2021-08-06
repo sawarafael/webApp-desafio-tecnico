@@ -11,6 +11,11 @@ export class PerfilListaComponent implements OnInit {
 
   perfis: Perfil[];
   public queryField: string;
+  
+  departaments: any = ['Financeiro', 'Administração',
+   'Direção', 'Operacional', 'Infraestrutura', 'Desenvolvimento'];
+
+  groups: any = ['CLT', 'PJ', 'Freelancer', 'Parceiro']
 
   constructor(private PerfilService: PerfilService) {  }
 

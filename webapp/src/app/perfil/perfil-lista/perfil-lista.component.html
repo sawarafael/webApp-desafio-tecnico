@@ -1,65 +1,83 @@
 <div class="card mt-3">
     <div class="card-header">
-      <div class="float-left">
-        <h4>
+      <div class="mx-2 my-2 float-left">
+        <h3>
+          <strong>
             Lista de Colaboradores
-        </h4>
+          </strong>
+        </h3>
       </div>
       <div class="float-right row">
-        <button type="button" class="col-auto mx-1 my-1 btn btn-primary" [routerLink]="['/new']">
+        <button type="button" class="col-auto mx-1 my-1 btn btn-filt" [routerLink]="['/new']">
             Novo Colaborador
         </button>
-        <button type="button" class="col-auto mx-1 my-1 btn btn-secondary" (click)="onRefresh()">
+        <button type="button" class="col-auto mx-1 my-1 btn btn-filt" (click)="onRefresh()">
             Atualizar
         </button>
-        <input type="text"
-         class="col-auto mx-1 my-1 form-control"
-         style="width: 23rem;"
-         placeholder="Pesquisar Nome, Email, Departamento ou Grupo">
-        <button type="button" class="col-auto mx-1 my-1 btn btn-secondary">
-            Pesquisar
+        <button type="button" class="col-auto mx-1 my-1 btn btn-filt">
+          Meu Perfil
         </button>
+        <div class="col-auto mx-1 my-1 input-group" style="width: 25rem;">
+          <input type="text" class="form-control" placeholder="Pesquise por Nome ou Email">
+          <div class="input-group-append">
+            <button class="btn btn-filt" type="button"> Pesquisar</button>
+          </div>
+        </div>
+        <select class="col-auto mx-1 my-1 custom-select">
+          <option value="" selected disabled>Departamentos</option> 
+          <option *ngFor="let departament of departaments">{{ departament }}</option>
+        </select>
+        <select class="col-auto mx-1 my-1 custom-select">
+          <option value="" selected disabled>Grupos</option> 
+          <option *ngFor="let group of groups">{{ group }}</option>
+        </select>
       </div>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
       <table class="table table-hover" >
         <thead>
           <tr>
-            <th>
-                ID
+            <th scope="col">
+              ID
             </th>
-            <th>
-                Nome
+            <th scope="col">
+              Nome
             </th>
-            <th>
-                Departamento
+            <th scope="col">
+              Email
             </th>
-            <th>
-                Grupo
+            <th scope="col">
+              Departamento
+            </th>
+            <th scope="col">
+              Grupo
             </th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let perfil of perfis">
             <td>
-                {{ perfil.Id }}
+              {{ perfil.Id }}
             </td>
             <td>
-                {{ perfil.Username }}
+              {{ perfil.Username }}
             </td>
             <td>
-                {{ perfil.Departament }}
+              {{ perfil.Email }}
             </td>
             <td>
-                {{ perfil.Group }}
+              {{ perfil.Departament }}
+            </td>
+            <td>
+              {{ perfil.Group }}
             </td>
             <td>
               <span class="float-right">
-                <button class="btn btn-outline-warning mb-1 btn-sm">
+                <button class="col-auto mx-1 my-1 btn btn-outline-warning mb-1 btn-sm">
                   Atualizar
                 </button>
   
-                <button class="btn btn-outline-danger mb-1 btn-sm">
+                <button class="col-auto mx-1 my-1 btn btn-outline-danger mb-1 btn-sm">
                   Remover
                 </button>
               </span>
@@ -69,13 +87,3 @@
       </table>  
     </div>
   </div>
-  <!--
-  <ng-template #deleteModal>
-    <div class="modal-body text-center">
-      <p>Tem certeza que deseja remover esse curso?</p>
-      <button type="button" class="btn btn-default" (click)="onConfirmDelete()">Sim</button>
-      <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Nao</button>
-    </div>
-  </ng-template>
-
--->

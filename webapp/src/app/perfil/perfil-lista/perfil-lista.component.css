@@ -1,0 +1,47 @@
+strong {
+    font-family: Arya;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 65px;
+}
+
+select {
+    background: #6DBFCB;
+    border: 0px solid #000;
+    border-radius: 7px;    
+    font-family: Arya;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+option {
+    border-radius: 7px;
+    font-family: Arya;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 65px;
+}
+
+th {
+    font-family: Arya;
+    font-style: normal;
+    font-size: 18px;
+}
+
+td {
+    font-family: Arya;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.btn-filt {
+    background: #6DBFCB;
+    border-radius: 7px;
+    color: black;
+    font-family: Arya;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+}
