@@ -1,0 +1,13 @@
+h2 {
+    font-family: Arya;
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+label {
+    font-family: Arya;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    display: flex;
+}

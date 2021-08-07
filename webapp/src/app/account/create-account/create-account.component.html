@@ -1,24 +1,26 @@
-<h2 class="text-center">Registro</h2>
-
-<form (ngSubmit)="onSubmit()" #form="ngForm">
-  <div class="mt-1 mx-2 form-group">
-    <label>
-      Nome
-    </label>
-    <input class="form-control" type="text" name="email" id="email" [(ngModel)]="account.name" required />
-  </div>
-  <div class="mt-1 mx-2 form-group">
-    <label>
-      E-mail
-    </label>
-    <input class="form-control" type="email" name="email" id="email" [(ngModel)]="account.email" required />
-  </div>
-  <div class="mt-1 mx-2 form-group">
-    <label>
-      Senha
-    </label>
-    <input class="form-control" type="password" name="password" id="password" [(ngModel)]="account.password" required />
-  </div>  
-  <button type="submit" class="mt-2 mx-2 btn btn-primary btn-block" [disabled]="form.form.invalid">Criar minha conta</button>
-  <button type="button" class="mt-2 mx-2 btn btn-link btn-block" [routerLink]="['/login']">Login</button>
-</form>
+<div class="create-box">
+  <h2 class="text-center">Registro</h2>
+  
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <div class="mt-1 mx-2 form-group">
+      <label>
+        Nome
+      </label>
+      <input class="form-control" type="text" name="email" id="email" [(ngModel)]="account.name" required />
+    </div>
+    <div class="mt-1 mx-2 form-group">
+      <label>
+        E-mail
+      </label>
+      <input class="form-control" type="email" name="email" id="email" [(ngModel)]="account.email" required />
+    </div>
+    <div class="mt-1 mx-2 form-group">
+      <label>
+        Senha
+      </label>
+      <input class="form-control" type="password" name="password" id="password" [(ngModel)]="account.password" required />
+    </div>  
+    <button type="submit" class="mt-2 mx-2 btn btn-primary btn-block" [disabled]="form.form.invalid">Criar minha conta</button>
+    <button type="button" class="mt-2 mx-2 btn btn-link btn-block" [routerLink]="['/login']">Login</button>
+  </form>
+</div>
