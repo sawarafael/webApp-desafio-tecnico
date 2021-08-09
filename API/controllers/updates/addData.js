@@ -3,6 +3,9 @@ const collabData = require('./../../models/collaborators/collabData');
 const collabFile = require('./../../models/collaborators/collabFiles');
 
 module.exports = {
+    /*
+    Esta função permite que o colaborador adicione ou altere todos os seus dados;
+    */
     addData (req, res) {
         collabUser.findOne({
             where: {
@@ -37,8 +40,10 @@ module.exports = {
         }).catch(err => {
             res.status(401).json({ err: "Colaborador não encontrado." })
         })
-    },
-
+    },    
+    /*
+    Esta função permite que o colaborador adicione ou altere o seu arquivo;
+    */
     addFile (req, res) {
         collabUser.findOne({
             where: {

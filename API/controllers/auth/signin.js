@@ -2,6 +2,7 @@ const { Op } = require('sequelize');
 const collabUser = require('./../../models/collaborators/collabUser');
 
 module.exports = {
+    //Faz a autenticação do Colaborador e retorna para ele seu próprio ID;
     signinCollab (req, res) {
         collabUser.findOne({
             where: {

@@ -1,6 +1,6 @@
 ## **API - Desafio Técnico WebApp / Perfil de Colaboradores**
 
-#### 1.0.0v
+#### 1.2.1v
 
 API destinada para uso do aplicativo *Perfil de Colaboradores WebApp*, este ReadMe é destinado para especificar exclusivamente as funcionalidades desta API em prol de auxiliar no desenvolvimento do lado do Cliente com a sua devida integração.
 
@@ -15,11 +15,8 @@ API destinada para uso do aplicativo *Perfil de Colaboradores WebApp*, este Read
 Crie um Banco de Dados com o nome de *"collabsDB"* e em seguida vá até o arquivo ***"utils/DBConnection.js"*** e altere os seguintes campos:
 
 DB_NAME : *collabsDB*
-
 DB_USER : ***Nome do Usuário MySQL proveniente***
-
 DB_PASS : ***Senha do Usuário MySQL proveniente***
-
 DB_HOST : ***localhost***
 
 Salve este arquivo e em seguida vá até ao outro arquivo com o nome de ***"./index.js"*** e retire esta parte do código da parte comentada:
@@ -34,35 +31,15 @@ conn
     })
 ~~~
 
-Após isto, instale as dependêncas da API e logo em seguida execute o programa para que as tabelas do Banco de Dados sejam criadas automáticamente, com os seguintes comandos, respectivamente:
+Após isto, instale as dependêncas da API e execute-o com os seguintes comandos, respectivamente:
 ~~~bash
 npm install
 node index
 ~~~
 
-Encerre a execução e volte ao arquivo *./index.js* e comente a parte do código acima (ou remova-o).
+As tabelas do Banco de Dados *collabsDB* serão automáticamente criadas e prontas para o trabalho, no entanto, encerre a execução e volte ao arquivo *./index.js* e comente a parte do código acima (ou remova-o).
 
-É importante você inserir dados nas tabelas-modelos: **teams** e **departaments**; com as seguintes querys, respectivamente:
-
-~~~bash
-insert into teams (id, name) values
-(1, "CLT"),
- (2, "PJ"),
-  (3, "Freelancer"),
-   (4, "Parceiros");
-~~~
-
-~~~bash
-insert into departaments (id, name) values 
-(1, "Financeiro"),
- (2, "Administração"),
-  (3, "Direção"),
-   (4, "Operacional"),
-    (5, "Infraestrutura"),
-     (6, "Desenvolvimento");
-~~~
-
-Feito tudo isto, você pode manter a API executando em escuta de desenvolvimento com o comando:
+Feito isto, você pode manter a API executando em escuta de desenvolvimento com o comando:
 ~~~bash
 nodemon index
 ~~~
@@ -73,22 +50,30 @@ nodemon index
 |:--:	|:--:	|  :-:	|:-:	|:--:	|
 |   Registro de Colaboradores	|   Registra novos Colaboradores. (CREATE/POST)	|   /auth/signup	|   ***body.username*** ± ***body.email*** ± ***body.password*** ± ***body.photo*** ± ***body.age*** ± ***body.description*** ± ***body.status*** ± ***body.departamentId*** ± ***body.groupId*** 	|   Status 200  ***"Colaborador cadastrado."***	|
 |   Autenticação de Colaboradores	|   Realiza o Login do Colaborador. (READ/GET)	|   /auth/signin	|   ***body.username***  ***body.password***	|   Status 200 ***"Sucesso!"*** / ID do Colaborador Autenticado'*'	| 
-|   Listagem de Colaboradores	|   Lista todos os Colaboradores registrados, podendo filtrar por Departamento, Grupo, Nome e Email.'**'(READ/GET) 	|   /list/by-collab	|   ***body.departamentFilter*** ***body.groupFilter*** ± ***body.nameFilter*** ± ***body.emailFilter***	|   Status 200 / Listagem Filtrada de Colaboradores	|
-|   Adicionar Dados	|   Adiciona os Dados restantes ao perfil do Colaborador.(UPDATE/DELETE/PATCH)	|   /upd/add-data	|  ***"body.photo"*** ± ***"body.age"*** ± ***body.bio*** ±  ***body.status***	|   Status 200 ***"Dados do Colaborador Alterados com Sucesso"***	|
-|   Adicionar Documento	|   Adiciona o Documento restante ao perfil do Colaborador.(UPDATE/DELETE/PATCH)	|   /upd/add-file	|   ***"body.name"***   ± ***"body.file"***	|   Status 200  ***"Arquivo do Colaborador Alterado com Sucesso"***	|
-|   Atualizar Setores	|   Atualiza os Setores(Departamento ou Grupo) dos quais o Colaborador trabalha.(UPDATE/PATCH)	|   /upd/upd-sector	|   ***"body.group"*** ± ***"body.departament"*** ± ***"body.status***	| Status 200 ***"Sucesso em Atualizar o Departamento/Grupo do Colaborador."***
+|   Listagem de Colaboradores	|   Lista todos os Colaboradores registrados, podendo filtrar por Departamento, Grupo, Nome e Email.'**'(READ/GET) 	|   /list/by-collab	|   ***body.departamentFilter*** ***body.groupFilter*** ± ***body.nameFilter*** ± ***body.emailFilter***	|   Status 200 / Lista Filtrada de Colaboradores	|
+|   Perfil do Colaborador       |   Retorna os dados do Colaborador registrado      |   /list/perfil/    |    ***query.id***      |          Status 200 / Dados do Colaborador
+|   Adicionar Dados	|   Adiciona os Dados restantes ao perfil do Colaborador.(UPDATE/PATCH)	|   /upd/add-data	|  ***"body.photo"*** ± ***"body.age"*** ± ***body.bio*** ±  ***body.status***	|   Status 200 ***"Dados do Colaborador Alterados com Sucesso"***	|
+|   Adicionar Documento	|   Adiciona o Documento restante ao perfil do Colaborador.(UPDATE/PATCH)	|   /upd/add-file	|   ***"body.name"***   ± ***"body.file"***	|   Status 200  ***"Arquivo do Colaborador Alterado com Sucesso"***	|
+|   Atualizar Setores	|   Atualiza os Setores(Departamento ou Grupo) dos quais o Colaborador trabalha.(UPDATE/PATCH)	|   /upd/upd-sector	|   ***"body.group"*** ± ***"body.departament"*** ± ***"body.status***	| Status 200 ***"Sucesso em Atualizar o Departamento/Grupo do Colaborador."*** |
+| Remover Colaborador |  Remove um Colaborador (DELETE/DELETE)      |       /upd/del-colab      |       ***query.id***      |     Status 200  ***"Colaborador removido com sucesso"***
 
 '*' - Este ID do Colaborador é utilizado para autenticar o usuários na utilização de todas as outras rotas (exceto a Rota de Registro).
 
 '**' - O filtro deve ocorrer na adição de alguma entrada, sem nenhuma entrada, o retorno será uma lista geral de todos os colaboradores.
 
 ### 3º - Versionamento e Correções
-**1.0.0v**
-
+**1.2.1v**
 (x.y.z) →  **X** = Concatenação / **Y**= Adição / **Z** = Correção
 
 ___________________________________________________
-**Nenhuma Feature registrada por enquanto...**
+##### Adição de Feature
+###### Visualizar Perfil do Colaborador
+
+Foi implementada a Rota que visualiza o perfil do colaborador.
+
+##### Deletar Dados do Colaborador
+
+Foi implementada a Rota que remove os dados de um colaborador.
 
 ___________________________________________________
 **Caso ocorra algum erro durante a execução da API, reportar em "Issues" deste repositório!**

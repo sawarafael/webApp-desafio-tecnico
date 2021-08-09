@@ -19,11 +19,13 @@ app.use(helmet());
 app.use(bp.urlencoded({ extended: true }));
 app.use(bp.json());
 
+app.set('views', 'views');
+app.set('view engine', 'ejs');
+
+
 app.get('/', (req, res) => {
-    res.send("<h1>Bem vindo a página inicial do Servidor - API!</h1> \n" + 
-    "\n <h3>Nada de importante acontece aqui.</h3> \n"
-    )
-});
+    res.render('index')
+})
 
 app.use('/auth', authRoute);
 app.use('/list', listRoute);

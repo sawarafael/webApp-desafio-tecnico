@@ -2,6 +2,10 @@ const collabUser = require('../../models/collaborators/collabUser');
 const collabData = require('../../models/collaborators/collabData');
 
 module.exports = {
+    /*
+    Esta função permite que o colaborador altere ou o departamento ou o grupo do 
+     colaborador;
+    */
     updateDepartament (req, res) {
         collabUser.findOne({
             where: {

@@ -14,6 +14,13 @@ collabUser.hasOne(collabData, {
 })
 
 module.exports = {
+    /*
+    Esta função pesquisa todos os dados de todos os colaboradores existentes
+     e se existir, retorna todos os dados dentro de um objeto;
+
+    Sem um dado de filtro, ele vai retornar todos os dados, mas adicionando
+     um filtro, ele retornará tudo aquilo que esteja dentro deste filtro;    
+    */
     showAllCollabs (req, res) {
         collabUser.findAll({            
             include: [
@@ -75,6 +82,11 @@ module.exports = {
             res.status(404).json({ err: "Colaboradores não encontrados." })
         })
     },
+
+    /*
+    Esta função pesquisa os arquivos dos colaboradores, tendendo a filtrar ou não
+     por um colaborador;
+    */
 
     showThatCollabFile (req, res) {
         collabUser.findOne({

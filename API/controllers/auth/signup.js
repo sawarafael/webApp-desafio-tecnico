@@ -3,6 +3,13 @@ const collabData = require('./../../models/collaborators/collabData');
 const collabFile = require('./../../models/collaborators/collabFiles');
 
 module.exports = {
+    /*
+    Faz uma verificação se já existe um colaborador com o mesmo email,
+     evitando duplicatas;
+    Se caso seja realmente um novo colaborador, ele irá adicionar dados nulos ou
+     com alguns dados para as tabelas correspondentes e confirmar que o colaborador
+      foi criado com sucesso;
+    */
     signupCollab (req, res) {
         collabUser.findOne({
             where: {
