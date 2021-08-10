@@ -45,3 +45,10 @@ td {
     font-weight: bold;
     font-size: 16px;
 }
+
+.avatar {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 10%;
+}

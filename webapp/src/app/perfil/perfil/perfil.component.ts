@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Perfil } from '../shared/perfil';
+import { PerfilService } from '../shared/perfil.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  //@ts-ignore
+  perfil: Perfil[];
+  //@ts-ignore
+  public queryField: string;
+
+  constructor(private PerfilService: PerfilService) { }
 
   ngOnInit(): void {
+    this.PerfilService.list()
+      .subscribe(dados => {
+        console.log(dados)
+      })
   }
 
 }

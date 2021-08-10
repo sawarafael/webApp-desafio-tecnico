@@ -7,6 +7,7 @@ import { AuthenticationComponent } from './layout/authentication/authentication.
 import { LoginComponent } from './account/login/login.component';
 import { CreateAccountComponent } from './account/create-account/create-account.component';
 import { AuthGuard } from './account/shared/auth.guard';
+import { PerfilComponent } from './perfil/perfil/perfil.component';
 
 const routes: Routes = [
 
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'new',
         component: NovoPerfilComponent
+      },
+      {
+        path: 'perfil',
+        component: PerfilComponent
       }
     ],
     canActivate: [AuthGuard]

@@ -9,12 +9,25 @@ import { Perfil } from './perfil';
 })
 export class PerfilService {
   
-  private readonly API = 'http://localhost:3000/list/by-collab'
+  private readonly API = 'http://localhost:3000'
+  private ColabId = localStorage.getItem('id')
 
   constructor(private http: HttpClient) { }
   
   list() {
-    return this.http.get<Perfil[]>(this.API)
+    return this.http.get<Perfil[]>(`${this.API}/list/by-collab`)
+      .pipe(
+        delay(2000),
+        tap(console.log)
+      )
+  }
+
+  perfil() {
+    return this.http.get<Perfil[]>(`${this.API}/list/perfil`, {
+      params: {
+        id: `${this.ColabId}`
+      }
+    })
       .pipe(
         delay(2000),
         tap(console.log)

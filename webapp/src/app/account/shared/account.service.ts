@@ -12,6 +12,7 @@ export class AccountService {
     const result = await this.http.post<any>('http://localhost:3000/auth/signin', user).toPromise();
     if (result) {
       window.localStorage.setItem('token', 'token');
+      window.localStorage.setItem('id', result.collabId);
       return true;
     }
 

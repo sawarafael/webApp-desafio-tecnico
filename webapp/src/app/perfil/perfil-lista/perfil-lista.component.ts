@@ -9,12 +9,18 @@ import { PerfilService } from '../shared/perfil.service';
 })
 export class PerfilListaComponent implements OnInit {
 
+  //@ts-ignore
+  //Variável que guarda os perfis
   perfis: Perfil[];
+  //Variável que irá resgatar o valor no campo de pesquisa
+  //@ts-ignore
   public queryField: string;
   
+  //Array para trabalhar no select
   departaments: any = ['Financeiro', 'Administração',
    'Direção', 'Operacional', 'Infraestrutura', 'Desenvolvimento'];
 
+  //Array para trabalhar no select
   groups: any = ['CLT', 'PJ', 'Freelancer', 'Parceiro']
 
   constructor(private PerfilService: PerfilService) {  }
@@ -23,6 +29,8 @@ export class PerfilListaComponent implements OnInit {
     this.onRefresh();
   }
 
+  //Função para a cada atualização ou normalmente, ele retorne a lista de perfis de
+  // colaboradores
   onRefresh() {
     this.PerfilService.list()
           .subscribe(dados => { 
