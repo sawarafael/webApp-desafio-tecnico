@@ -39,7 +39,27 @@ node index
 
 As tabelas do Banco de Dados *collabsDB* serão automáticamente criadas e prontas para o trabalho, no entanto, encerre a execução e volte ao arquivo *./index.js* e comente a parte do código acima (ou remova-o).
 
-Feito isto, você pode manter a API executando em escuta de desenvolvimento com o comando:
+É necessário inserir dados nas tabelas de referencia, basta acessar o banco de dados e inserir as seguintes querys:
+
+~~~bash
+insert into departaments (id, name) values 
+(1, "Financeiro"),
+ (2, "Administração"),
+  (3, "Direção"),
+   (4, "Operacional"),
+    (5, "Infraestrutura"),
+     (6, "Desenvolvimento");
+~~~
+
+~~~bash
+insert into teams (id, name) values
+(1, "CLT"),
+ (2, "PJ"),
+  (3, "Freelancer"),
+   (4, "Parceiros");
+~~~
+
+Feito tudo isto, você pode manter a API executando em escuta de desenvolvimento com o comando:
 ~~~bash
 nodemon index
 ~~~
