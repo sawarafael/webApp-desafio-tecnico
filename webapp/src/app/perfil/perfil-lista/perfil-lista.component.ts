@@ -34,7 +34,8 @@ export class PerfilListaComponent implements OnInit {
   onRefresh() {
     this.PerfilService.list()
           .subscribe(dados => { 
-            this.perfis = dados.collabFilter; console.log(this.perfis)
+            this.perfis = dados.collabFilter;
+             console.log(this.perfis)
           })       
   }
 

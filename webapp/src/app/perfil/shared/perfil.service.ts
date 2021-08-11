@@ -9,11 +9,13 @@ import { Perfil } from './perfil';
 })
 export class PerfilService {
   
+  //Variáveis para requisições
   private readonly API = 'http://localhost:3000'
   private ColabId = localStorage.getItem('id')
 
   constructor(private http: HttpClient) { }
   
+  //Recupera a lista de colaboradores
   list() {
     return this.http.get<Perfil[]>(`${this.API}/list/by-collab`)
       .pipe(
@@ -22,21 +24,13 @@ export class PerfilService {
       )
   }
 
+  //Recupera os dados do colaborador autenticado
   perfil() {
-    return this.http.get<Perfil[]>(`${this.API}/list/perfil`, {
-      params: {
-        id: `${this.ColabId}`
-      }
-    })
+    return this.http.get<Perfil[]>(`${this.API}/list/perfil?id=${this.ColabId}`)
       .pipe(
         delay(2000),
         tap(console.log)
       )
-  }
-
-  listByFilter() {
-    let headers = new HttpParams();
-    headers = headers.append('', '');
   }
 
 }

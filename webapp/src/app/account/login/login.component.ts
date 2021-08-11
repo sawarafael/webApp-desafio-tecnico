@@ -9,6 +9,7 @@ import { AccountService } from '../shared/account.service';
 })
 export class LoginComponent implements OnInit {
 
+  //Dados que o usuário deve passar
   login = {
     email: '',
     password: ''
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Recupera os dados enviados pelo usuário
   async onSubmit() {
     try {
       const result = await this.accountService.login(this.login);

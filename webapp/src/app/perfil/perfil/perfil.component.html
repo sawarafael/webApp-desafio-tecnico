@@ -15,27 +15,25 @@
 <div class="perfil-box text-justify">
     <div class="row">
         <div class="my-2 col-3 col-md-3 col-sm-3 col-lg-3">
-            <img src="https://avatarfiles.alphacoders.com/180/thumb-1920-180354.jpg" 
-             class="img-fluid"
-            >
+            <img [src]="perfil.Photo" class="img-fluid">
         </div>
         <div class="col-3 col-md-3 col-sm-3 col-lg-3">
             <h4>
-                Usuário
+               {{ perfil.Username }}
             </h4>
             <h5>
-                Email
+                {{ perfil.Email }}
             </h5>
             <h5>
-                Status:
+                Status: {{ perfil.Status }}
             </h5>
         </div>
         <div class="col-3 col-md-3 col-sm-3 col-lg-3">
             <h3>
-                Departamento
+                {{ perfil.Departament }}
             </h3>
             <h4>
-                Grupo
+                {{ perfil.Group }}
             </h4>
         </div>
     </div>
@@ -45,7 +43,7 @@
         </h4>
         <div>
             <h5>
-                texto
+                {{ perfil.Bio }}
             </h5>
         </div>
     </div>

@@ -10,17 +10,26 @@ import { PerfilService } from '../shared/perfil.service';
 export class PerfilComponent implements OnInit {
 
   //@ts-ignore
-  perfil: Perfil[];
-  //@ts-ignore
-  public queryField: string;
+  perfil: any;
 
   constructor(private PerfilService: PerfilService) { }
 
   ngOnInit(): void {
-    this.PerfilService.list()
-      .subscribe(dados => {
-        console.log(dados)
-      })
+    this.getData();
+  }
+
+
+  //Recupera os dados do Colaborador
+  getData(): void {
+    this.PerfilService.perfil()
+     .subscribe(dados => {
+       const data = dados.data;
+       
+       console.log(data.Id)
+       this.perfil = data
+       console.log(this.perfil)
+
+     })
   }
 
 }

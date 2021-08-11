@@ -24,12 +24,13 @@ export class CreateAccountComponent implements OnInit {
   ngOnInit(): void {
   }
     
+
   async onSubmit() {
     try {
       console.log()
       const result = await this.accountService.createAccount(this.account);
 
-      // exibir uma msg amigavel aqui
+      // exibir uma mensagem amigavel aqui
       console.log(result);
     } catch (error) {
       console.error(error);
