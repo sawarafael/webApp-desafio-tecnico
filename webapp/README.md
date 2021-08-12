@@ -14,7 +14,7 @@ Compilando pelo comando **ng build**
 
 ### Rotas Configuradas
 
-- [] Rota de Registro →  *"/signiup*
+- [] Rota de Registro →  *"/signup*
 - [x] Rota de Login →  *"/signin"*
 - [x] Rota de Visualização de Colaboradores →  *"/"*
 - [x] Rota de Visualização de Perfil - *"/perfil"*

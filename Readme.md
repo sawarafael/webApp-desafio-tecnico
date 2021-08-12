@@ -9,3 +9,9 @@ Propor que um aplicativo web permita a autenticação, visualização e alteraç
 1. API
 2. Wireframes
 3. webapp
+
+
+#### Obstáculos
+
+- (SUPERADO) Criação em telas de protótipo wireframes com Figma
+- (Em Atividade) Aprendizagem Ativa (Aprendendo e Aplicando simultaneamente) no Framework AngularJS
